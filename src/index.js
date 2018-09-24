@@ -25,13 +25,13 @@ class Sorter {
   sort(indices) {
     let newArr = [];
 
-    for(var i = 0; i < indices.length; i++) {
+    for(let i = 0; i < indices.length; i++) {
       newArr.push(this.arrSort[indices[i]]);
     }
     newArr.sort(this.comparator);
     Array.prototype.sort.call(indices);
 
-    for (var a = 0; a < indices.length; a++) {
+    for (let a = 0; a < indices.length; a++) {
       this.arrSort[indices[a]] = newArr[a];
     }
   }

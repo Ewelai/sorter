@@ -23,16 +23,17 @@ class Sorter {
   }
 
   sort(indices) {
-    let newArr = [];
+    const newArr = [];
+    const sortInd = indices.sort((left, right) => left - right);
 
-    for(let i = 0; i < indices.length; i++) {
-      newArr.push(this.arrSort[indices[i]]);
+    for(let i = 0, len = indices.length; i < len; i++) {
+      newArr.push(this.arrSort[sortInd[i]]);
     }
-    newArr.sort(this.comparator);
-    Array.prototype.sort.call(indices);
 
-    for (let a = 0; a < indices.length; a++) {
-      this.arrSort[indices[a]] = newArr[a];
+    newArr.sort(this.comparator);
+
+    for (let a = 0, len = indices.length; a < len; a++) {
+      this.arrSort[sortInd[a]] = newArr[a];
     }
   }
 
